@@ -9,15 +9,31 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
-        <Grid Margin="10">
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        
             <Border Grid.ColumnSpan="2" BorderBrush="LightBlue" BorderThickness="1">
                 <ScrollViewer VerticalScrollBarVisibility="Visible">
                     <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                        Text="{Binding TextoPantalla}"/>
                 </ScrollViewer>
             </Border>
-            <MediaElement Name="mediaElement" />
+
+        <TextBox Grid.Row="1" Name="TxbMensaje" AcceptsReturn="False" KeyDown="TxbMensaje_KeyDown" />
+
+        <Button Grid.Row="1" Grid.Column="1" Content="Enviar"
+                Command="{Binding ProcesarEntrada}" CommandParameter="{Binding ElementName=txbMensaje, Path=Text}" />
+
+        <MediaElement Name="mediaElement" />
         </Grid>
-    </Grid>
+
 </UserControl>

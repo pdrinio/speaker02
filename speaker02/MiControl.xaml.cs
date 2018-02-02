@@ -25,5 +25,13 @@ namespace speaker02
 
             DataContext = new MiControlViewModel(mediaElement);
         }
+
+        private void TxbMensaje_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if(e.Key == Windows.System.VirtualKey.Enter)
+            {
+                //TODO
+            }
+        }
     }
 }
